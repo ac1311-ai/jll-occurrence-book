@@ -288,6 +288,44 @@
       .stat-item { border-right: none; border-bottom: 1px solid var(--butler-border); }
       footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px; }
     }
+
+  /* DRAFT WATERMARK */
+  .draft-watermark {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: 9998;
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent, transparent 120px,
+      rgba(232,52,28,0.025) 120px, rgba(232,52,28,0.025) 122px
+    );
+  }
+  .draft-watermark::after {
+    content: 'DRAFT'; position: fixed;
+    top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-35deg);
+    font-size: 160px; font-weight: 900; letter-spacing: 20px;
+    color: rgba(232,52,28,0.06); pointer-events: none;
+    font-family: "Segoe UI", sans-serif; white-space: nowrap;
+  }
+  /* DRAFT TOP BAR */
+  .draft-top-bar {
+    background: linear-gradient(135deg, #1a0a00, #2d1200);
+    border-bottom: 2px solid rgba(232,52,28,0.6);
+    padding: 10px 60px; display: flex; align-items: center;
+    justify-content: space-between; gap: 20px;
+    position: sticky; top: 0; z-index: 9999;
+  }
+  .draft-badge-label {
+    display: inline-flex; align-items: center; gap: 8px; flex-shrink: 0;
+    background: rgba(232,52,28,0.2); border: 1px solid rgba(232,52,28,0.5);
+    border-radius: 6px; padding: 5px 14px;
+    font-size: 12px; font-weight: 800; color: #E8341C;
+    letter-spacing: 2px; text-transform: uppercase;
+  }
+  .draft-disclaimer {
+    font-size: 11.5px; color: rgba(255,255,255,0.4);
+    font-style: italic; line-height: 1.5;
+  }
+
   </style>
 </head>
 <body>
