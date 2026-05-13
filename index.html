@@ -289,6 +289,7 @@
       footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px; }
     }
 
+
   /* DRAFT WATERMARK */
   .draft-watermark {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -310,7 +311,7 @@
   .draft-top-bar {
     background: linear-gradient(135deg, #1a0a00, #2d1200);
     border-bottom: 2px solid rgba(232,52,28,0.6);
-    padding: 10px 60px; display: flex; align-items: center;
+    padding: 10px 40px; display: flex; align-items: center;
     justify-content: space-between; gap: 20px;
     position: sticky; top: 0; z-index: 9999;
   }
@@ -329,6 +330,11 @@
   </style>
 </head>
 <body>
+<div class="draft-watermark"></div>
+<div class="draft-top-bar">
+  <span class="draft-badge-label">&#9888; DRAFT &mdash; NOT FINALISED</span>
+  <span class="draft-disclaimer">This document is a confidential proposal draft prepared exclusively for internal review by JLL. It has not been finalised and must not be shared, forwarded, or distributed to any third party without prior written consent from Butler Asia Limited.</span>
+</div>
 
 <nav class="top-nav">
   <div class="nav-logos">
