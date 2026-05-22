@@ -327,6 +327,134 @@
     font-style: italic; line-height: 1.5;
   }
 
+  
+  /* ===== MOBILE FIXES ===== */
+  @media (max-width: 600px) {
+
+    /* Fix draft top bar - collapse disclaimer on mobile */
+    .draft-top-bar {
+      padding: 8px 14px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+    }
+    .draft-badge-label {
+      font-size: 11px;
+      padding: 4px 10px;
+    }
+    .draft-disclaimer {
+      font-size: 10px;
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Fix watermark - make it much smaller so it doesn't block content */
+    .draft-watermark::after {
+      font-size: 60px !important;
+      letter-spacing: 8px !important;
+    }
+
+    /* Nav */
+    .top-nav { padding: 10px 16px; }
+    .nav-badge { display: none; }
+    .nav-logos img.butler-logo,
+    .nav-logos img.jll-logo { height: 22px; }
+
+    /* Hero */
+    .hero { padding: 36px 16px 28px; }
+    .hero h1 { font-size: 28px !important; }
+    .hero-sub { font-size: 15px !important; }
+    .hero-meta { gap: 12px; }
+    .hero-meta-item { font-size: 12px; }
+
+    /* Sections */
+    section { padding: 28px 16px; }
+    .section-title { font-size: 24px !important; }
+    .section-desc { font-size: 14px; }
+
+    /* All multi-column grids → single column */
+    .how-grid,
+    .legal-cards,
+    .pricing-grid,
+    .convo-section,
+    .compare-grid,
+    .compliance-grid,
+    .feature-grid,
+    .value-grid,
+    .broadcast-grid,
+    .arch-grid,
+    .step-grid,
+    .workflow-grid,
+    .report-grid,
+    .kpi-grid,
+    .benefit-grid,
+    [style*="grid-template-columns: repeat(3"],
+    [style*="grid-template-columns: repeat(2"],
+    [style*="grid-template-columns: 1fr 1fr"],
+    [style*="grid-template-columns: 2fr 1.5fr 1.5fr 2fr"] {
+      grid-template-columns: 1fr !important;
+    }
+
+    /* Pricing table - stack rows */
+    [style*="grid-template-columns: 2fr 1.5fr 1.5fr 2fr"] > div {
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 10px 16px !important;
+    }
+
+    /* Stat rows */
+    .stat-row { flex-direction: column !important; }
+    .stat-item {
+      border-right: none !important;
+      border-bottom: 1px solid var(--butler-border) !important;
+    }
+
+    /* Chat bubbles */
+    .chat-bubble { max-width: 90% !important; font-size: 13px !important; }
+
+    /* CTA section */
+    .cta-section { padding: 40px 16px; }
+    .cta-section h2 { font-size: 24px; }
+    .cta-btn { font-size: 14px; padding: 14px 24px; }
+    .cta-secondary { font-size: 11px; }
+
+    /* Footer */
+    footer {
+      flex-direction: column !important;
+      gap: 10px !important;
+      text-align: center !important;
+      padding: 20px 16px !important;
+    }
+
+    /* Tables - make scrollable */
+    table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+    /* Inline style grids with 3 columns (cost anchor etc) */
+    .cost-anchor-grid {
+      grid-template-columns: 1fr !important;
+    }
+  }
+
+  @media (max-width: 768px) {
+    /* Tablet adjustments */
+    .top-nav { padding: 12px 20px; }
+    .hero { padding: 50px 20px 36px; }
+    .hero h1 { font-size: 36px; }
+    section { padding: 36px 20px; }
+    .section-title { font-size: 28px; }
+
+    [style*="grid-template-columns: repeat(3"],
+    [style*="grid-template-columns: 2fr 1.5fr 1.5fr 2fr"] {
+      grid-template-columns: 1fr 1fr !important;
+    }
+
+    [style*="grid-template-columns: 2fr 1.5fr 1.5fr 2fr"] {
+      grid-template-columns: 1fr !important;
+    }
+  }
+
   </style>
 </head>
 <body>
@@ -792,7 +920,7 @@
   <p class="section-desc">This is a <strong>single-feature compliance tier</strong> — occurrence logging only. No dashboards, no job dispatch, no engineer workflows. At HK$550–950 per site per month, the annual cost per site is less than a single hour of solicitor time in Hong Kong. No setup fee. No hardware. Frontline staff start logging on day one.</p>
 
   <!-- COST ANCHOR CALLOUT -->
-  <div style="background: linear-gradient(135deg, rgba(232,52,28,0.08), rgba(232,52,28,0.03)); border: 1px solid rgba(232,52,28,0.25); border-radius: 16px; padding: 28px 32px; margin-bottom: 32px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;">
+  <div style="background: linear-gradient(135deg, rgba(232,52,28,0.08), rgba(232,52,28,0.03)); border: 1px solid rgba(232,52,28,0.25); border-radius: 16px; padding: 28px 32px; margin-bottom: 32px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;" class="cost-anchor-grid">
     <div>
       <div style="font-size: 11px; font-weight: 700; color: var(--butler-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">Physical Book</div>
       <div style="font-size: 32px; font-weight: 900; color: var(--butler-muted);">HK$50–100</div>
